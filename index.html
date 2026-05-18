@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cline's Maintenance | Home Services & Property Maintenance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #071E3D;
+      --blue:       #1458A8;
+      --blue-mid:   #1A6FD4;
+      --blue-light: #2E90FA;
+      --blue-glow:  #60B3FF;
+      --white:      #FFFFFF;
+      --off-white:  #EDF3FB;
+      --black:      #080C14;
+      --gray-dark:  #1C2233;
+      --gray:       #64748B;
+      --gray-light: #CBD5E1;
+      --border:     rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(7, 30, 61, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+    .logo-top {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
+    .logo-top span { color: var(--blue-light); }
+    .logo-sub {
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--blue-glow);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--gray-light);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--blue-mid);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-light) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 110px 5% 70px;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(20,88,168,0.35) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 10% 80%, rgba(46,144,250,0.18) 0%, transparent 55%),
+        linear-gradient(160deg, #071E3D 0%, #080C14 55%, #0B1625 100%);
+    }
+
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(20,88,168,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,88,168,0.07) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 680px;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(20,88,168,0.25);
+      border: 1px solid rgba(46,144,250,0.4);
+      color: var(--blue-glow);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, var(--blue-light), var(--blue-glow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      color: var(--gray-light);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--blue-mid);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(26,111,212,0.4);
+      min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-primary:hover, .btn-primary:active {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(46,144,250,0.5);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-secondary:hover, .btn-secondary:active {
+      border-color: var(--blue-light);
+      background: rgba(26,111,212,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ── STATS STRIP ── */
+    .stats {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 5%;
+    }
+    .stats-inner {
+      display: flex;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 2rem;
+      border-right: 1px solid var(--border);
+      flex: 1;
+      justify-content: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-icon {
+      width: 40px; height: 40px;
+      background: rgba(20,88,168,0.3);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-glow);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .stat-text strong {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .stat-text span {
+      font-size: 0.75rem;
+      color: var(--gray);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 0.98rem;
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .center-header { text-align: center; }
+    .center-header .section-desc { margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--black); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--gray-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,111,212,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(46,144,250,0.35);
+      box-shadow: 0 12px 40px rgba(20,88,168,0.25);
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, rgba(20,88,168,0.5), rgba(26,111,212,0.3));
+      border: 1px solid rgba(46,144,250,0.25);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem;
+      color: var(--blue-glow);
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+
+    /* ── ABOUT ── */
+    #about {
+      background: linear-gradient(180deg, #080C14 0%, #071E3D 50%, #080C14 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .feature-dot {
+      width: 42px; height: 42px;
+      background: rgba(20,88,168,0.25);
+      border: 1px solid rgba(46,144,250,0.3);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-glow);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .feature-row h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .feature-row p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+
+    .experience-block {
+      background: var(--gray-dark);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .experience-block::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(26,111,212,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .exp-number {
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--blue-light), var(--blue-glow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+    }
+    .exp-label { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; }
+    .exp-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 2rem; }
+
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: rgba(20,88,168,0.2);
+      border: 1px solid rgba(46,144,250,0.2);
+      color: var(--blue-glow);
+      padding: 0.3rem 0.85rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ── CONTACT / QUOTE ── */
+    #contact { background: var(--black); }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .contact-info p {
+      font-size: 0.93rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-method { display: flex; align-items: center; gap: 0.9rem; }
+    .contact-method .icon {
+      width: 42px; height: 42px;
+      background: rgba(20,88,168,0.25);
+      border: 1px solid rgba(46,144,250,0.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-glow);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .contact-method span { font-size: 0.88rem; color: var(--gray-light); font-weight: 500; }
+
+    /* ── FORM ── */
+    .quote-form {
+      background: var(--gray-dark);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 2.25rem;
+    }
+    .form-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .form-subtitle { font-size: 0.82rem; color: var(--gray); margin-bottom: 1.75rem; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-light);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: var(--white);
+      padding: 0.8rem 1rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+      min-height: 48px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #4A5568; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-light);
+      background: rgba(26,111,212,0.08);
+    }
+    .form-group select option { background: #1C2233; color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    /* ── PHOTO UPLOAD ── */
+    .file-upload-area {
+      position: relative;
+      border: 1.5px dashed rgba(46,144,250,0.35);
+      border-radius: 10px;
+      background: rgba(20,88,168,0.06);
+      transition: border-color 0.2s, background 0.2s;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .file-upload-area:hover,
+    .file-upload-area.drag-over {
+      border-color: var(--blue-light);
+      background: rgba(26,111,212,0.1);
+    }
+    .file-upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      min-height: unset;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    .file-upload-ui {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 1.5rem 1rem;
+      pointer-events: none;
+      text-align: center;
+    }
+    .file-upload-ui i {
+      font-size: 1.6rem;
+      color: var(--blue-glow);
+      margin-bottom: 0.2rem;
+    }
+    .file-upload-ui span {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-light);
+    }
+    .file-upload-ui small {
+      font-size: 0.72rem;
+      color: var(--gray);
+    }
+
+    #filePreview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+    .preview-thumb {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(46,144,250,0.3);
+      flex-shrink: 0;
+    }
+    .preview-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .preview-thumb .remove-thumb {
+      position: absolute;
+      top: 2px; right: 2px;
+      width: 18px; height: 18px;
+      background: rgba(8,12,20,0.85);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 10px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    #fileCount {
+      font-size: 0.75rem;
+      color: var(--blue-glow);
+      font-weight: 600;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      background: var(--blue-mid);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(26,111,212,0.4);
+      margin-top: 0.5rem;
+      min-height: 52px;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .form-submit:hover, .form-submit:active {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(46,144,250,0.5);
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--gray);
+      margin-top: 0.75rem;
+    }
+
+    /* ── SUCCESS ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--gray-dark);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+    }
+    .form-success .success-icon {
+      width: 68px; height: 68px;
+      background: rgba(20,88,168,0.25);
+      border: 2px solid var(--blue-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      color: var(--blue-glow);
+      margin: 0 auto 1.25rem;
+    }
+    .form-success h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.6rem; }
+    .form-success p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5% 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-tagline {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.6rem;
+      max-width: 220px;
+      line-height: 1.6;
+    }
+    .footer-links h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue-glow);
+      margin-bottom: 1rem;
+    }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--gray);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── SCROLL ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — TABLET (≤ 900px)
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-inner { flex-wrap: wrap; }
+      .stat-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-item:last-child, .stat-item:nth-last-child(-n+2):nth-child(odd) { border-bottom: none; }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE (≤ 640px)
+    ══════════════════════════════════════ */
+    @media (max-width: 640px) {
+      nav { padding: 0 4%; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: rgba(7,30,61,0.99);
+        border-bottom: 1px solid var(--border);
+        padding: 1.25rem 4%;
+        gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 1rem;
+      }
+      .nav-links li:last-child a { border-bottom: none; }
+      .nav-cta {
+        background: none !important;
+        padding: 0.85rem 0 !important;
+        font-weight: 700 !important;
+        color: var(--blue-glow) !important;
+        border-radius: 0 !important;
+      }
+      .hamburger { display: flex; }
+
+      .hero { padding: 90px 4% 60px; min-height: 100svh; }
+      .hero-badge { font-size: 0.7rem; padding: 0.35rem 0.85rem; }
+      .hero-buttons { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; }
+
+      section { padding: 70px 4%; }
+
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .service-card { padding: 1.4rem 1.2rem; }
+      .service-icon { width: 46px; height: 46px; font-size: 1.15rem; }
+      .service-card h3 { font-size: 0.92rem; }
+      .service-card p { font-size: 0.78rem; }
+
+      .stats-inner { flex-direction: column; }
+      .stat-item {
+        flex: unset; width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 0;
+        justify-content: flex-start;
+      }
+      .stat-item:last-child { border-bottom: none; }
+
+      .form-row { grid-template-columns: 1fr; }
+      .quote-form { padding: 1.5rem; border-radius: 14px; }
+
+      .about-grid { gap: 2rem; }
+      .experience-block { padding: 1.75rem; }
+      .exp-number { font-size: 4rem; }
+
+      .contact-wrap { gap: 2rem; }
+      .contact-info h2 { font-size: 1.6rem; }
+
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .footer-links { width: 100%; }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — SMALL PHONES (≤ 390px)
+    ══════════════════════════════════════ */
+    @media (max-width: 390px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.9rem; }
+      .logo-top { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar">
+    <a href="#" class="logo">
+      <span class="logo-top">CLINE'S <span>MAINTENANCE</span></span>
+      <span class="logo-sub">Home &amp; Property Services</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact"><span class="nav-cta">Get a Quote</span></a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        15+ Years of Trusted Experience
+      </div>
+      <h1>
+        Your Home,<br />
+        <span class="highlight">Expertly Maintained.</span>
+      </h1>
+      <p class="hero-sub">
+        Specializing in appliance repair &amp; installation — and skilled across the board for all your home maintenance needs. Interior and exterior, done right.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+          Get a Free Quote
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <i class="fa-regular fa-circle-question"></i>
+          Ask a Question
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS STRIP ═══ -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+        <div class="stat-text">
+          <strong>15+</strong>
+          <span>Years of Experience</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fa-solid fa-house-circle-check"></i></div>
+        <div class="stat-text">
+          <strong>500+</strong>
+          <span>Projects Completed</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <div class="stat-text">
+          <strong>Interior &amp; Exterior</strong>
+          <span>Full-Scope Services</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="services">
+    <div class="section-header center-header fade-up">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Skilled Handyman &amp; Home Services</h2>
+      <p class="section-desc">Quality work on the jobs that matter most — no project too small, no corner cut.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-blender"></i></div>
+        <h3>Appliance Repair &amp; Install</h3>
+        <p>Diagnose and repair all major household appliances, or handle professional installation of washers, dryers, dishwashers, and more.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Electrical</h3>
+        <p>Outlets, switches, lighting installations, fan replacements, and general electrical troubleshooting and repairs.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Drywall</h3>
+        <p>Patching holes, hanging new drywall, finishing, and texturing walls and ceilings to a smooth, seamless result.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-paint-roller"></i></div>
+        <h3>Painting</h3>
+        <p>Interior and exterior painting with clean prep work, premium materials, and crisp, lasting finishes.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-cabinet-filing"></i></div>
+        <h3>Cabinetry</h3>
+        <p>Cabinet installs, repairs, hardware upgrades, and refinishing for kitchens, bathrooms, garages, and beyond.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-border-all"></i></div>
+        <h3>Fencing</h3>
+        <p>Wood, vinyl, and chain-link fence installation, repairs, and gate work for residential and commercial properties.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-border-top-left"></i></div>
+        <h3>Flooring</h3>
+        <p>Hardwood, laminate, tile, and vinyl flooring — installation, repairs, and refinishing for any room in the house.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="fade-up">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title">Craftsmanship You Can Count On</h2>
+        <p class="section-desc">We treat every home like it's our own. Cline's Maintenance has built its reputation on honest work, fair pricing, and results that last.</p>
+
+        <div class="about-features">
+          <div class="feature-row">
+            <div class="feature-dot"><i class="fa-solid fa-user-check"></i></div>
+            <div>
+              <h4>Experienced &amp; Reliable</h4>
+              <p>Over 15 years of hands-on experience across a wide range of trade work — skilled, dependable, and thorough on every job.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"><i class="fa-solid fa-file-contract"></i></div>
+            <div>
+              <h4>Transparent Pricing</h4>
+              <p>Straightforward quotes with no hidden fees. You'll know exactly what you're getting before any work begins.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"><i class="fa-solid fa-house"></i></div>
+            <div>
+              <h4>Interior &amp; Exterior</h4>
+              <p>One crew, one call. We handle everything from inside your walls to your backyard fence.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div>
+              <h4>On Time, Every Time</h4>
+              <p>We respect your schedule. Jobs are planned, communicated, and completed when we say they will be.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-block fade-up">
+        <div class="exp-number">15+</div>
+        <div class="exp-label">Years in the Trade</div>
+        <p class="exp-desc">From small repairs to skilled specialty work, Cline's Maintenance has built a track record of dependable, quality service across hundreds of residential and commercial properties. Every job is backed by real experience — not guesswork.</p>
+        <div class="service-tags">
+          <span class="tag">Electrical</span>
+          <span class="tag">Drywall</span>
+          <span class="tag">Painting</span>
+          <span class="tag">Appliances</span>
+          <span class="tag">Cabinetry</span>
+          <span class="tag">Fencing</span>
+          <span class="tag">Flooring</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT / QUOTE ═══ -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="contact-info fade-up">
+        <p class="section-label">Get in Touch</p>
+        <h2>Ready to Start Your Project?</h2>
+        <p>Whether you need a quick repair or a bigger job, we'd love to help. Fill out the form and we'll get back to you within 24 hours — free quote, no obligation.</p>
+
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+            <span>Call or text us anytime — we pick up.</span>
+          </div>
+          <div class="contact-method">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <span>Email us and expect a same-day reply.</span>
+          </div>
+          <div class="contact-method">
+            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+            <span>Serving your local area — interior &amp; exterior.</span>
+          </div>
+          <div class="contact-method">
+            <div class="icon"><i class="fa-solid fa-camera"></i></div>
+            <span>Attach a photo — it helps us give you a better quote.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-form-wrap fade-up">
+        <div class="quote-form" id="quoteFormBox">
+          <div class="form-title">Request a Free Quote</div>
+          <div class="form-subtitle">Takes less than 2 minutes. No obligation.</div>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="John" required autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" required autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@email.com" required autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Electrical</option>
+                <option>Drywall</option>
+                <option>Painting</option>
+                <option>Appliance Repair / Installation</option>
+                <option>Cabinetry</option>
+                <option>Fencing</option>
+                <option>Flooring</option>
+                <option>Multiple Services</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Describe Your Project</label>
+              <textarea id="message" name="message" placeholder="Tell us what you need — size, scope, timeline, any details that help us understand the job..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Project Photos <span style="color:var(--gray);font-weight:400;text-transform:none;letter-spacing:0;">(Optional — helps us quote accurately)</span></label>
+              <div class="file-upload-area" id="fileUploadArea">
+                <input type="file" id="projectPhoto" name="projectPhoto" accept="image/*" multiple />
+                <div class="file-upload-ui">
+                  <i class="fa-solid fa-camera"></i>
+                  <span>Tap to add photos</span>
+                  <small>JPG, PNG, HEIC · Up to 10 photos</small>
+                </div>
+              </div>
+              <div id="filePreview"></div>
+              <div id="fileCount"></div>
+            </div>
+
+            <button type="submit" class="form-submit">
+              <i class="fa-solid fa-paper-plane"></i>
+              Send My Request
+            </button>
+            <p class="form-note">We'll respond within 24 hours. Your info is never shared.</p>
+          </form>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <h3>Request Received!</h3>
+          <p>Thanks for reaching out. We'll review your project details and get back to you within 24 hours with a free quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-top">CLINE'S <span>MAINTENANCE</span></span>
+          <span class="logo-sub">Home &amp; Property Services</span>
+        </a>
+        <p class="footer-tagline">Professional home maintenance and repair services — 15+ years in the trade, built on honest work.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Electrical</a></li>
+          <li><a href="#services">Drywall &amp; Painting</a></li>
+          <li><a href="#services">Appliance Repair</a></li>
+          <li><a href="#services">Cabinetry &amp; Flooring</a></li>
+          <li><a href="#services">Fencing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Cline's Maintenance. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // ── Mobile nav toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    }));
+
+    // ── Scroll fade-in ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── Staggered service card delay ──
+    document.querySelectorAll('.service-card').forEach((card, i) => {
+      card.style.transitionDelay = `${(i % 4) * 70}ms`;
+    });
+
+    // ── Photo upload & preview ──
+    const fileInput   = document.getElementById('projectPhoto');
+    const filePreview = document.getElementById('filePreview');
+    const fileCount   = document.getElementById('fileCount');
+    const uploadArea  = document.getElementById('fileUploadArea');
+    let selectedFiles = [];
+
+    fileInput.addEventListener('change', handleFiles);
+
+    uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+    uploadArea.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadArea.classList.remove('drag-over');
+      const dt = e.dataTransfer;
+      if (dt && dt.files.length) {
+        const arr = Array.from(dt.files).filter(f => f.type.startsWith('image/'));
+        addFiles(arr);
+      }
+    });
+
+    function handleFiles(e) {
+      addFiles(Array.from(e.target.files));
+      fileInput.value = '';
+    }
+
+    function addFiles(newFiles) {
+      newFiles.forEach(file => {
+        if (selectedFiles.length >= 10) return;
+        if (!file.type.startsWith('image/')) return;
+        selectedFiles.push(file);
+        renderThumb(file, selectedFiles.length - 1);
+      });
+      updateCount();
+    }
+
+    function renderThumb(file, idx) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const wrap = document.createElement('div');
+        wrap.className = 'preview-thumb';
+        wrap.dataset.idx = idx;
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.alt = file.name;
+        const btn = document.createElement('button');
+        btn.className = 'remove-thumb';
+        btn.innerHTML = '&times;';
+        btn.type = 'button';
+        btn.addEventListener('click', () => removeFile(idx));
+        wrap.appendChild(img);
+        wrap.appendChild(btn);
+        filePreview.appendChild(wrap);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeFile(idx) {
+      selectedFiles.splice(idx, 1);
+      filePreview.innerHTML = '';
+      selectedFiles.forEach((f, i) => renderThumb(f, i));
+      updateCount();
+    }
+
+    function updateCount() {
+      if (selectedFiles.length === 0) {
+        fileCount.style.display = 'none';
+      } else {
+        fileCount.style.display = 'block';
+        fileCount.textContent = `${selectedFiles.length} photo${selectedFiles.length > 1 ? 's' : ''} selected`;
+      }
+    }
+
+    // ── Form submission ──
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fname   = document.getElementById('fname').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      if (!fname || !email || !service) {
+        alert('Please fill in your name, email, and the service you need.');
+        return;
+      }
+      document.getElementById('quoteFormBox').style.display = 'none';
+      document.getElementById('formSuccess').style.display  = 'block';
+    });
+
+    // ── Navbar opacity on scroll ──
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').style.background =
+        window.scrollY > 40 ? 'rgba(7,30,61,0.99)' : 'rgba(7,30,61,0.97)';
+    }, { passive: true });
+  </script>
+</body>
+</html>
